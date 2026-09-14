@@ -39,5 +39,22 @@ namespace CoffeeNChillFunctions.Services
                     HttpHeaders = headers
                 });
         }
+        public async Task<List<object>> ListDocumentsAsync()
+        {
+            List<object> documents = new List<object>();
+
+            await foreach (var blobItem in _containerClient.GetBlobsAsync())
+            {
+                documents.Add(new
+                {
+                    FileName = blobItem.Name,
+                    Size = blobItem.Properties.ContentLength,
+                    ContentType = blobItem.Properties.ContentType,
+                    LastModified = blobItem.Properties.LastModified
+                });
+            }
+
+            return documents;
+        }
     }
 }

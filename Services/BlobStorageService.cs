@@ -56,5 +56,28 @@ namespace CoffeeNChillFunctions.Services
 
             return documents;
         }
+        public async Task<(Stream FileStream, string ContentType)?> DownloadDocumentAsync(
+            string fileName)
+        {
+            BlobClient blobClient =
+                _containerClient.GetBlobClient(fileName);
+
+            if (!await blobClient.ExistsAsync())
+            {
+                return null;
+            }
+
+            var download =
+                await blobClient.DownloadStreamingAsync();
+
+            string contentType =
+                download.Value.Details.ContentType
+                ?? "application/octet-stream";
+
+            return (
+                download.Value.Content,
+                contentType
+            );
+        }
     }
 }

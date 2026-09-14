@@ -9,7 +9,9 @@ namespace CoffeeNChillFunctions.Services
 
         public BlobStorageService()
         {
-            string connectionString = "UseDevelopmentStorage=true";
+            string connectionString =
+             Environment.GetEnvironmentVariable("AzureWebJobsStorage")
+            ?? "UseDevelopmentStorage=true";
             string containerName = "staff-docs";
 
             _containerClient =

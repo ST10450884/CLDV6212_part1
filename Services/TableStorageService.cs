@@ -10,7 +10,10 @@ namespace CoffeeNChillFunctions.Services
 
         public TableStorageService()
         {
-            string connectionString = "UseDevelopmentStorage=true";
+            string connectionString =
+            Environment.GetEnvironmentVariable("AzureWebJobsStorage")
+             ?? "UseDevelopmentStorage=true";
+
             string tableName = "MenuItems";
 
             _tableClient = new TableClient(connectionString, tableName);

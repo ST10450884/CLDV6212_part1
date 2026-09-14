@@ -1,0 +1,210 @@
+{
+  "info": {
+    "_postman_id": "32adaddd-3d5f-4099-9bfe-f2421c13bec3",
+    "name": "CoffeeNChill API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58209519",
+    "_collection_link": "https://go.postman.co/collection/58209519-32adaddd-3d5f-4099-9bfe-f2421c13bec3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Menu Item",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"partitionKey\": \"Coffee\",\r\n  \"rowKey\": \"001\",\r\n  \"name\": \"Cappuccino\",\r\n  \"description\": \"Espresso with steamed milk and foam\",\r\n  \"price\": 35.0,\r\n  \"isAvailable\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7071/api/menu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "menu"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Menu Items",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7071/api/menu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "menu"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Menu Items By Category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7071/api/menu/category/Coffee",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "menu",
+            "category",
+            "Coffee"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Menu Item",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Large Cappuccino\",\r\n  \"description\": \"Espresso with steamed milk and extra foam\",\r\n  \"price\": 42.0,\r\n  \"isAvailable\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7071/api/menu/Coffee/001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "menu",
+            "Coffee",
+            "001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Menu Item",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7071/api/menu/Coffee/001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "menu",
+            "Coffee",
+            "001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload Staff Document",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "/C:/Users/emeris/Desktop/staff-notes.txt"
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7071/api/documents/upload?fileName=staff-notes.txt",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "documents",
+            "upload"
+          ],
+          "query": [
+            {
+              "key": "fileName",
+              "value": "staff-notes.txt"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Staff Documents",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7071/api/documents",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "documents"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download Staff Document",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:7071/api/documents/download/staff-notes.txt",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7071",
+          "path": [
+            "api",
+            "documents",
+            "download",
+            "staff-notes.txt"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
